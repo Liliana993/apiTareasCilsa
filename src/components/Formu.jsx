@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import axios from 'axios';
+import { useState } from 'react';
 import { Container, Row } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -6,33 +7,35 @@ import Form from 'react-bootstrap/Form';
 
 
 
-function Formu() {
+function Formu({setTodos, onSuccess }) {
 
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const [todo, setTodo] = useState([]);
 
-   useEffect(() => {
-        fetch('http://localhost:3003/cursos')
-            .then(response => response.json())
-            .then(data => setTodo(data.data));
-    }, []);
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
         e.preventDefault();
-        fetch('http://localhost:3003/todos', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ title, description, todo }),
-        })
-            .then(response => response.json())
-            .then(data => {
-                setTodo([...todo, data.data]);  // Añadir el nuevo curso a la lista
-                setTitle('');
-                setDescription('');  // Limpiar el campo del formulario
-            });
+        try {
+          const res = await axios.post("http://localhost:3003/todos", {
+      title,
+      description
+    });
+
+     //console.log("RESPUESTA POST =>", res.data);
+
+    // Actualiza automáticamente la tabla
+        const newTask = res.data.todo;
+        setTodos((prev) => [...prev, newTask]);
+
+      // Cerrar el modal
+      if (onSuccess) onSuccess();
+
+    // Limpiar inputs
+    setTitle("");
+    setDescription("");
+
+        } catch (error) {
+          console.log('Ha ocurrido un error al crear la tarea: ', error)
+        }
     };
 
   return (

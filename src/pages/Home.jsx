@@ -3,6 +3,8 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router';
 import Tabla from '../components/Tabla';
+import '../App.css';
+
 
 export default function Home(){
     return(
@@ -10,14 +12,9 @@ export default function Home(){
         <Navbar bg="primary" data-bs-theme="dark">
         <Container>
           <Navbar.Brand>Tareas</Navbar.Brand>
-          <Link></Link>
-          <Nav className="me-auto">
-            <Link to="/crear">Crear</Link>
-          </Nav>
         </Container>
       </Navbar>
-
-      <Container>
+      <Container className='container-fluid p-2 home'>
         <Tabla />
       </Container>
 

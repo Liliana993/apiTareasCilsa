@@ -9,7 +9,7 @@ Frontend</h2>
 </ul>
 <br>
 
-<h2>Backend</h2>h2>
+<h2>Backend</h2>
 
 <ul>
   <li>🟢 Node.js</li>

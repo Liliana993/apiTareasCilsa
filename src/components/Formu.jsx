@@ -15,7 +15,7 @@ function Formu({setTodos, onSuccess }) {
   const handleSubmit = async(e) => {
         e.preventDefault();
         try {
-          const res = await axios.post("http://localhost:3003/todos", {
+          const res = await axios.post("https://taks-api-te6f.vercel.app/todos", {
       title,
       description
     });

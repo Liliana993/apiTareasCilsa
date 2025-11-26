@@ -1,12 +1,35 @@
-# React + Vite
+<h1>Proyecto utilizando React-Vite</h1>
+<br>
+<h2>🚀 Tecnologías utilizadas
+Frontend</h2>
+<ul>
+  <li>⚛️ React</li>
+  <li>🎨 Bootstrap — Estilos y componentes</li>
+  <li>🔗 Axios — Conexión al backend</li>
+</ul>
+<br>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<h2>Backend</h2>
 
-Currently, two official plugins are available:
+<ul>
+  <li>🟢 Node.js</li>
+  <li>🚀 Express</li>
+  <li>🌱 Mongoose — Conexión y modelado de MongoDB</li>
+  <li>🔁 Nodemon — Auto-restart en desarrollo</li>
+  <li>🔒 dotenv — Variables de entorno</li>
+  <li>🔓 CORS — Permite comunicación entre frontend y backend</li>
+</ul>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+<h3>🖼️ Funcionalidades de la App</h3>
+<ul>
+  <li>✔️ Crear tareas</li>
+  <li>✔️ Editarlas</li>
+   <li>✔️ Eliminarlas</li>
+   <li>✔️ Mostrar lista de tareas en tiempo real</li>
+  <li>✔️ Conexión con backend mediante Axios</li>
+  <li>✔️ Diseño con Bootstrap</li>
+</ul>
+<br>
+<h5>🤝 Contribuciones</h5>
+<p>¡Las contribuciones son bienvenidas!
+Si querés agregar mejoras, abrí un PR o dejá un issue.</p>

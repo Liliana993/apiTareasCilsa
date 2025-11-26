@@ -35,7 +35,7 @@ function Tabla() {
 
    const fetchTasks = async () => {
     try {
-      const response = await axios.get('http://localhost:3003/todos')
+      const response = await axios.get('https://taks-api-te6f.vercel.app/todos')
       setTodos(response.data)
     } catch (error) {
       console.error('Error fetching tareas:', error)
@@ -56,7 +56,7 @@ function Tabla() {
 
   if (!result.isConfirmed) return;
        try {
-    await axios.delete(`http://localhost:3003/todos/${_id}`);
+    await axios.delete(`https://taks-api-te6f.vercel.app/todos/${_id}`);
 
     // Vuelve a pedir la lista actualizada
     const res = await axios.get("http://localhost:3003/todos");
@@ -73,7 +73,7 @@ function Tabla() {
    const handleUpdate = async () => {
     try {
       const {_id, title, description} = selectedTodo;
-      await axios.put(`http://localhost:3003/todos/${_id}`,{
+      await axios.put(`https://taks-api-te6f.vercel.app/todos/${_id}`,{
         title,
         description
       });

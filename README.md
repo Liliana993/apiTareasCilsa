@@ -24,7 +24,6 @@ Frontend</h2>
 <ul>
   <li>✔️ Crear tareas</li>
   <li>✔️ Editarlas</li>
-   <li>✔️ Marcar como completadas</li>
    <li>✔️ Eliminarlas</li>
    <li>✔️ Mostrar lista de tareas en tiempo real</li>
   <li>✔️ Conexión con backend mediante Axios</li>

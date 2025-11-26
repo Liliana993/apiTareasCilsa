@@ -9,7 +9,7 @@ import '../App.css';
 export default function Home(){
     return(
         <>
-        <Navbar bg="primary" data-bs-theme="dark">
+        <Navbar bg="dark" data-bs-theme="dark">
         <Container>
           <Navbar.Brand>Tareas</Navbar.Brand>
         </Container>

@@ -13,7 +13,7 @@ function Modale({setTodos}) {
 
   return (
     <>
-      <Button className='m-2' variant="primary" onClick={handleShow}>
+      <Button className='m-2 nueva' onClick={handleShow}>
         Crear tarea
       </Button>
 

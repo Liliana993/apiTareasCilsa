@@ -4,6 +4,9 @@ import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import Modale from './Modale';
 import { Container, Modal } from 'react-bootstrap';
+import {FaTrashCan} from "react-icons/fa6";
+import {FaPen} from 'react-icons/fa6';
+import Swal from "sweetalert2";
 
 
 function Tabla() {
@@ -41,15 +44,28 @@ function Tabla() {
 
     // 🔸 Función para borrar tarea
    const handleDelete = async (_id) => {
+
+    const result = await Swal.fire({
+    title: "¿Eliminar tarea?",
+    text: "Esta acción no se puede revertir",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonText: "Sí, eliminar",
+    cancelButtonText: "Cancelar"
+  });
+
+  if (!result.isConfirmed) return;
        try {
     await axios.delete(`http://localhost:3003/todos/${_id}`);
 
     // Vuelve a pedir la lista actualizada
     const res = await axios.get("http://localhost:3003/todos");
     setTodos(res.data);
+    Swal.fire("Eliminada", "La tarea fue eliminada correctamente", "success");
 
   } catch (error) {
     console.error("Error deleting course:", error);
+    Swal.fire("Error", "No se pudo eliminar", "error");
   } // Maneja cualquier error durante la solicitud
     };
 
@@ -65,10 +81,25 @@ function Tabla() {
       //refresco la tabla
       setTodos(prev => prev.map(t => (t._id === _id ?{...t, title, description} : t )));
 
+      // Mensaje SweetAlert2
+    Swal.fire({
+      icon: "success",
+      title: "¡Tarea editada!",
+      text: "Los cambios se guardaron correctamente.",
+      showConfirmButton: false,
+      timer: 1800
+    });
+
       //nuestro modal
       setShowModal(false);
     } catch (error) {
       console.log('Ha ocurrido un error al actualizar la tarea: ', error);
+      //mensaje de error
+      Swal.fire({
+      icon: "error",
+      title: "Error",
+      text: "No se pudo actualizar la tarea.",
+    });
     }
   };
 
@@ -80,8 +111,8 @@ function Tabla() {
         <tr>
           <th>Titulo</th>
           <th>Descripción</th>
-          <th>Fecha-Hora</th>
-          <th>Borrar/Editar</th>
+          <th>Fecha/Hora</th>
+          <th>Acción</th>
         </tr>
       </thead>
       <tbody>
@@ -91,8 +122,8 @@ function Tabla() {
           <td>{todo.description}</td>
           <td>{new Date(todo.createdAt).toLocaleString()}</td>
           <td className="d-grid gap-2">
-            <Button variant='danger' type='submit' size='sm' onClick={() => handleDelete(todo._id)}>Borrar</Button>
-            <Button variant='warning' type='submit' size='sm' onClick={() => handleOpenModal(todo)}>Editar</Button>
+            <Button variant='danger' type='submit' size='sm' onClick={() => handleDelete(todo._id)}>Borrar <FaTrashCan/> </Button>
+            <Button className='editar' type='submit' size='sm' onClick={() => handleOpenModal(todo)}>Editar <FaPen/></Button>
           </td>
         </tr>
         )}

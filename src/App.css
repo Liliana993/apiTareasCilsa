@@ -1,3 +1,26 @@
 .home{
     background-image: url('../src/assets/fondo.jpg');
 }
+
+.nueva{
+    background-color: #6924A5;
+    border-color: #6924A5;
+}
+
+.nueva:hover{
+    background-color: #802bcb;
+    border-color: #6924A5;
+}
+
+.editar{
+    background-color: #CADE01;
+    color: #000;
+    border-color: #CADE01;
+    font-weight: 600;
+}
+
+.editar:hover{
+    background-color: #afbe02;
+    color: #000;
+    border-color: #afbe02;
+}

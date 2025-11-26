@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Container, Row } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-//import axios from 'axios';
+import Swal from 'sweetalert2';
 
 
 
@@ -20,11 +20,16 @@ function Formu({setTodos, onSuccess }) {
       description
     });
 
-     //console.log("RESPUESTA POST =>", res.data);
-
     // Actualiza automáticamente la tabla
         const newTask = res.data.todo;
         setTodos((prev) => [...prev, newTask]);
+        // SweetAlert2 mensaje de éxito
+    Swal.fire({
+      title: "¡Tarea creada!",
+      text: "La tarea se agregó correctamente.",
+      icon: "success",
+      confirmButtonText: "Aceptar"
+    });
 
       // Cerrar el modal
       if (onSuccess) onSuccess();
@@ -34,7 +39,14 @@ function Formu({setTodos, onSuccess }) {
     setDescription("");
 
         } catch (error) {
-          console.log('Ha ocurrido un error al crear la tarea: ', error)
+          console.log('Ha ocurrido un error al crear la tarea: ', error);
+          //mensaje de error
+          Swal.fire({
+      title: "Error",
+      text: "No se pudo crear la tarea.",
+      icon: "error",
+      confirmButtonText: "Entendido"
+    });
         }
     };
 
@@ -48,7 +60,7 @@ function Formu({setTodos, onSuccess }) {
       <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
         <Form.Label>Descripción</Form.Label>
         <Form.Control type='text' placeholder='description' value={description} onChange={(e) => setDescription(e.target.value)} />
-        <Button variant='primary' type='submit'>Guardar</Button>
+        <Button className='mt-2 nueva' variant='primary' type='submit'>Guardar</Button>
       </Form.Group>
     </Form>
    

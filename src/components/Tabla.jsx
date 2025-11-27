@@ -87,7 +87,7 @@ function Tabla() {
       title: "¡Tarea editada!",
       text: "Los cambios se guardaron correctamente.",
       showConfirmButton: false,
-      thttps://taks-api-te6f.vercel.app/todos  });
+      timer: 1500 });
 
       //nuestro modal
       setShowModal(false);

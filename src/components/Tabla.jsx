@@ -59,7 +59,7 @@ function Tabla() {
     await axios.delete(`https://taks-api-te6f.vercel.app/todos/${_id}`);
 
     // Vuelve a pedir la lista actualizada
-    const res = await axios.get("https://task-api-te6f.vercel.app/todos");
+    const res = await axios.get('https://taks-api-te6f.vercel.app/todos');
     setTodos(res.data);
     Swal.fire("Eliminada", "La tarea fue eliminada correctamente", "success");
 
